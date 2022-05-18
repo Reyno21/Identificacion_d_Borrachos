@@ -3,11 +3,13 @@
 import cv2
 import numpy as np
 
-face_cascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_frontalface_default.xml') #Cargar el archivo de cascada para reconocer la cara
-eye_casade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml') #Cargar el archivo de cascada para reconocer los ojos
+#face_cascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_frontalface_default.xml') #Cargar el archivo de cascada para reconocer la cara
+#eye_casade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml') #Cargar el archivo de cascada para reconocer los ojos
+face_cascade = cv2.CascadeClassifier('C://Users//Reyno21//OneDrive//Escritorio//Identificacion_d_Borrachos//haarcascade_frontalface_default.xml') #Cargar el archivo de cascada para reconocer la cara
+eye_casade = cv2.CascadeClassifier("C://Users//Reyno21//OneDrive//Escritorio//Identificacion_d_Borrachos//haarcascade_eye.xml")
 
 img = cv2.imread('Arturo.jpg')
-res = cv2.resize(img, dsize=(210, 250), interpolation=cv2.INTER_CUBIC)
+res = cv2.resize(img, dsize=(610, 620), interpolation=cv2.INTER_CUBIC)
 gray = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY) #Convertir la imagen a escala de grises
 
 face = face_cascade.detectMultiScale(gray, 1.3, 5) #Detectar la cara
