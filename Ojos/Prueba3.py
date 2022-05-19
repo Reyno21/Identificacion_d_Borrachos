@@ -4,10 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 eye_cascade = cv2.CascadeClassifier('haarcascae_eye.xml')
 cap = cv2.VideoCapture(0)
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    
-        
+
     diameter=[]
     blink =False
     bcount = -1

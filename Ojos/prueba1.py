@@ -2,12 +2,14 @@ import cv2
 import numpy as np
 
 #read image
-img = cv2.imread("Arturo.jpg") # pass the name of image to be read
+#img = cv2.imread("Arturo.jpg") # pass the name of image to be read
+img = cv2.imread("../Arturo.jpg") # pass the name of image to be read
 res = cv2.resize(img, dsize=(610, 620), interpolation=cv2.INTER_CUBIC)
 outImage = res.copy()
 
 # Load HAAR cascade
-eyesCascade = cv2.CascadeClassifier("C://Users//Reyno21//OneDrive//Escritorio//Identificacion_d_Borrachos//haarcascade_eye.xml")
+#eyesCascade = cv2.CascadeClassifier("C://Users//Reyno21//OneDrive//Escritorio//Identificacion_d_Borrachos//haarcascade_eye.xml")
+eyesCascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml') 
 
 #------------ Detect Eyes ------------#
 # eyeRects contain bounding rectangle of all detected eyes
