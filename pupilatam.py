@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-eye_cascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml') #Cargar el archivo de cascada para reconocer los ojos
+eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml') #Cargar el archivo de cascada para reconocer los ojos
 cap = cv2.VideoCapture(0)
 
 diameter=[]
@@ -51,7 +51,7 @@ try:
             if (blink==False):
                 blink=True
                 if blink==True:
-                     cv2.putText(img,"Blink",(10,90), font, 1,(0,0,255),2,cv2.LINE_AA)
+                    cv2.putText(img,"Blink",(10,90), font, 1,(0,0,255),2,cv2.LINE_AA)
             a="Eye Close" 
             cv2.putText(img,a,(10,30), font, 1,(0,0,255),2,cv2.LINE_AA)
             

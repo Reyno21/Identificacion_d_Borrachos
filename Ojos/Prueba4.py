@@ -3,10 +3,10 @@ import numpy as np
 
 
 # init part
-#face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-#eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-face_cascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_frontalface_default.xml') #Cargar el archivo de cascada para reconocer la cara
-eye_casade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+#face_cascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_frontalface_default.xml') #Cargar el archivo de cascada para reconocer la cara
+#eye_casade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml')
 detector_params = cv2.SimpleBlobDetector_Params()
 detector_params.filterByArea = True
 detector_params.maxArea = 1500
@@ -64,6 +64,9 @@ def detect_eyes(img, cascade):
         cv2.imshow('maskRedvis', maskRedvis) #Tiempo real
         cv2.imshow('maskRed', maskRed) #El twice
                 #cv2.imshow('Video', imagen) #Visualizacion de ambas    
+                
+                
+    
     return left_eye, right_eye
 
 
