@@ -29,6 +29,14 @@ def detect_faces(img, cascade):
     return frame
 
 
+#Rango bajo de color rojo
+redBajo = np.array([0,100,20], np.uint8)
+redBajo1 = np.array([175,100,20], np.uint8)
+
+#Rango alto de color rojo
+redAlto = np.array([8, 255, 255], np.uint8)
+redAlto1 = np.array([179,255,255], np.uint8)
+
 def detect_eyes(img, cascade):
     gray_frame = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     eyes = cascade.detectMultiScale(gray_frame, 1.3, 5)  # detect eyes
@@ -44,6 +52,16 @@ def detect_eyes(img, cascade):
             left_eye = img[y:y + h, x:x + w]
         else:
             right_eye = img[y:y + h, x:x + w]
+            
+        frameSHV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+                #Mascara permite la identificacion de colores
+        maskRed = cv2.inRange(frameSHV, redBajo, redAlto)
+                #Combinacion de ellos para poder visualizar la imagen normal y la imagen del color
+        maskRedvis = cv2.bitwise_and(img, img, mask = maskRed)
+                #Muestra la infor generada
+        cv2.imshow('maskRedvis', maskRedvis) #Tiempo real
+        cv2.imshow('maskRed', maskRed) #El twice
+                #cv2.imshow('Video', imagen) #Visualizacion de ambas    
     return left_eye, right_eye
 
 
