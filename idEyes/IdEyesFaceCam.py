@@ -35,7 +35,7 @@ while(True):
                 #Mascara permite la identificacion de colores
                 maskRed = cv2.inRange(frameSHV, redBajo, redAlto)
                 #Combinacion de ellos para poder visualizar la imagen normal y la imagen del color
-                maskRedvis = cv2.bitwise_and(rec, rec, mask = maskRed)
+                maskRedvis = cv2.bitwise_and(eyes, eyes, mask = maskRed)
                 #Muestra la infor generada
                 cv2.imshow('maskRedvis', maskRedvis) #Tiempo real
                 cv2.imshow('maskRed', maskRed) #El twice
