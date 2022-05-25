@@ -94,7 +94,7 @@ def nothing(x):
 
 
 def main():
-    cap = cv2.VideoCapture('../VideoB.mp4')
+    cap = cv2.VideoCapture('../Videos/video3.mp4')
     cv2.namedWindow('image')
     cv2.createTrackbar('threshold', 'image', 0, 255, nothing)
     while True:
