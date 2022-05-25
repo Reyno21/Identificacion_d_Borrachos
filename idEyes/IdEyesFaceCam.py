@@ -4,7 +4,7 @@ import cv2
 cap = cv2.VideoCapture(0)
 
 #Rango bajo de color rojo
-redBajo = np.array([0,200,9], np.uint8)
+redBajo = np.array([0,100,20], np.uint8)
 redBajo1 = np.array([175,100,20], np.uint8)
 
 #Rango alto de color rojo
@@ -21,6 +21,8 @@ while(True):
 
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #Convertir la imagen a escala de grises
 
+    auxFrame = frame.copy()
+    
     face = face_cascade.detectMultiScale(gray, 1.3, 5) #Detectar la cara
 
     for (x,y,w,h) in face: #Recorrer el arreglo de caras
@@ -30,12 +32,14 @@ while(True):
         eyes = eye_casade.detectMultiScale(roi_gray) #Detectar los ojos
         for (ex,ey,ew,eh) in eyes: #Recorrer el arreglo de ojos
             rec = cv2.rectangle(roi_color, (ex,ey), (ex+ew, ey+eh), (0,255,0), 2) #Dibujar un rectangulo en los ojos
+            ojos = auxFrame[y:y+h, x: x +w]
+            ojos = cv2.resize(ojos,(150,150),interpolation=cv2.INTER_CUBIC)
             if rec.any() >=1:
                 frameSHV = cv2.cvtColor(rec, cv2.COLOR_BGR2HSV)
                 #Mascara permite la identificacion de colores
                 maskRed = cv2.inRange(frameSHV, redBajo, redAlto)
                 #Combinacion de ellos para poder visualizar la imagen normal y la imagen del color
-                maskRedvis = cv2.bitwise_and(eyes, eyes, mask = maskRed)
+                maskRedvis = cv2.bitwise_and(rec, rec, mask = maskRed)
                 #Muestra la infor generada
                 cv2.imshow('maskRedvis', maskRedvis) #Tiempo real
                 cv2.imshow('maskRed', maskRed) #El twice
