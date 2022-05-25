@@ -14,10 +14,10 @@ while True:
     al, an, c = frame.shape
 
     #tomar el centro de la imagen
-    x1 = int(an / 3.5)
+    x1 = int(an / 3)
     x2 = int(x1 * 2)
 
-    y1 = int(al / 3.5)
+    y1 = int(al / 3)
     y2 = int(y1 * 2)
 
     cv2.putText(frame, 'ponga el ojaso en el rectangulo prro', (x1 - 50, y1 - 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255 , 0),2)
