@@ -3,8 +3,8 @@ import numpy as np
 
 
 # init part
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('../haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('../haarcascade_eye.xml')
 #face_cascade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_frontalface_default.xml') #Cargar el archivo de cascada para reconocer la cara
 #eye_casade = cv2.CascadeClassifier('C:/Users/HP/OneDrive/Escritorio/8vo Semestre/TMPI/2do Parcial/haarcascade_eye.xml')
 detector_params = cv2.SimpleBlobDetector_Params()
